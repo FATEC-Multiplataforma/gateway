@@ -17,12 +17,11 @@ public class RouteConfig {
                                 "/fretec/v1/auth/login/**",
                                 "/fretec/v1/auth/forget/**")
                         .permitAll()
-                        .pathMatchers(
-                                "/fretec/v1/auth/save/**")
+                        .pathMatchers("/fretec/v1/auth/save/**")
                         .hasRole("ADMIN")
-                        .anyExchange().authenticated()
-                )
-                .oauth2ResourceServer(oauth2 -> oauth2.jwt())
+                        .anyExchange()
+                        .authenticated()
+                ).oauth2ResourceServer(oauth -> oauth.jwt())
                 .build();
     }
 
