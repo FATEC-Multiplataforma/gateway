@@ -14,6 +14,11 @@ public class RouteConfig {
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(exchange -> exchange
                         .pathMatchers(
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/fretec/v1/auth/v3/api-docs",
+                                "/fretec/v1/order/v3/api-docs",
                                 "/fretec/v1/auth/login/**",
                                 "/fretec/v1/auth/forget/**")
                         .permitAll()
